@@ -5,5 +5,8 @@
 Mapeamento objeto-relacional é uma técnica de desenvolvimento utilizada para reduzir a impedância da programação orientada aos objetos<br> 
 utilizando bancos de dados relacionais. 
 <hr>
+<h2> Foi utilizada a arquitetura MVC </h2>
 
+O MVC funciona como um padrão de arquitetura de software que melhora a conexão entre as camadas de dados, lógica de negócio e interação com usuário. Por padrão existem a camada Model, Controller e View que deram origem a sigla dessa arquitetura de software mais utilizado entre os desenvolvedores.
 
+![mvc](https://user-images.githubusercontent.com/70352508/147787644-2840a0cd-d116-49b0-a478-e3a594266e67.PNG)
