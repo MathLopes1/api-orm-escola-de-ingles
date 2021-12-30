@@ -16,6 +16,8 @@ router.put('/pessoas/:id', PessoaController.atualizarPessoa)
 router.delete('/pessoas/:id', PessoaController.apagarPessoa)
 //Requisição para pegar uma matricula
 router.get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.pegarUmaMatricula)
+//Requisição para criar uma matrícula
+router.post('/pessoas/:estudanteId/matricula', PessoaController.criarMatricula)
 
 
 
