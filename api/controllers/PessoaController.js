@@ -54,6 +54,22 @@ class PessoaController {
             return res.status(500).json(error.message)    
         }
     }
+    // rota pessoas/:estudanteId/matricula/:matriculaId - pegando uma matricula por id matricula e id estudante
+    static async pegarUmaMatricula(req, res){
+        //Guardando os dois parametros do end point nas constantes
+        const {estudanteId, matriculaId} = req.params
+        try {
+            const umaMatricula = await database.Matriculas.findOne({
+                where:{ 
+                id: Number(matriculaId), //id referencia ao campo na tabela de matriculas
+                estudante_id: Number(estudanteId)
+            }
+            })
+            return res.status(200).json(umaMatricula)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = PessoaController

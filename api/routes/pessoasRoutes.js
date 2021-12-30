@@ -14,6 +14,9 @@ router.post('/pessoas', PessoaController.criarPessoa)
 router.put('/pessoas/:id', PessoaController.atualizarPessoa)
 //Requisição para deletar pessoa por id
 router.delete('/pessoas/:id', PessoaController.apagarPessoa)
+//Requisição para pegar uma matricula
+router.get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.pegarUmaMatricula)
+
 
 
 module.exports = router
