@@ -70,6 +70,24 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
+    // Restaurando pessoas ocultadas através do paranoid
+    static async restauraPessoa(req, res) {
+        const { id } = req.params
+        try {
+            await database.pessoas.restore(
+                {
+                    where: {
+                        id: Number(id)
+                    }
+                })
+         return res.status(200).json({mensagem: `id ${id} restaurado`})
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+
+
     //Criando uma nova matricula - Rota: pessoas/:estudanteId/matricula
     static async criarMatricula(req, res) {
         const { estudanteId } = req.params
@@ -103,12 +121,12 @@ class PessoaController {
         }
     }
     static async apagarMatricula(req, res) {
-        const {estudanteId, matriculaId} = req.params
+        const { estudanteId, matriculaId } = req.params
         try {
-            await database.Matriculas.destroy({ 
-                where: { 
+            await database.Matriculas.destroy({
+                where: {
                     id: Number(matriculaId)
-                } 
+                }
             })
             return res.status(200).json({ mensagem: `Matricula com id  ${matriculaId} foi apagada com sucesso!` })
         } catch (error) {

@@ -22,6 +22,8 @@ router.get('/pessoas', PessoaController.pegaTodasAsPessoas)
 .put('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.atualizarMatricula)
 //Requisição para apagar uma matricula
 .delete('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.apagarMatricula)
+//Restaurando Pessoas que foram ocultadas 
+.post('/pessoas/:id/restaurar', PessoaController.restauraPessoa)
 
 
 
