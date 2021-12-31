@@ -27,4 +27,4 @@ O cliente quer poder consultar as matrículas por turma e saber quais delas est�
 
 O cliente gostaria que, uma vez que o cadastro de um estudante fosse desativado, todas as matrículas relativas a este estudante automaticamente passassem a constar como “canceladas”.<br>
 
-Durante o projeto vamos analisar esta lista e transformar esses requisitos em novas funcionalidades.
+Durante o projeto foi analisada esta lista e transformamos esses requisitos em novas funcionalidades.
