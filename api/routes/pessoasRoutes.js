@@ -7,19 +7,21 @@ const router = Router()
 //Fazendo uma requisição get trazendo os conteudos armazenados no banco de dados, através do metodo pega todas as pessoas
 router.get('/pessoas', PessoaController.pegaTodasAsPessoas)
 //Requisição para pehar uma pessoa através do metodo pegar uma pessoa
-router.get('/pessoas/:id', PessoaController.pegarUmaPessoa)
+.get('/pessoas/:id', PessoaController.pegarUmaPessoa)
 //Requisição para criar uma nova pessoa
-router.post('/pessoas', PessoaController.criarPessoa)
+.post('/pessoas', PessoaController.criarPessoa)
 //Requisição para atualizar uma pessoa por id
-router.put('/pessoas/:id', PessoaController.atualizarPessoa)
+.put('/pessoas/:id', PessoaController.atualizarPessoa)
 //Requisição para deletar pessoa por id
-router.delete('/pessoas/:id', PessoaController.apagarPessoa)
+.delete('/pessoas/:id', PessoaController.apagarPessoa)
 //Requisição para pegar uma matricula
-router.get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.pegarUmaMatricula)
+.get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.pegarUmaMatricula)
 //Requisição para criar uma matrícula
-router.post('/pessoas/:estudanteId/matricula', PessoaController.criarMatricula)
+.post('/pessoas/:estudanteId/matricula', PessoaController.criarMatricula)
 //Requisição para Atualizar uma matricula
-router.put('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.atualizarMatricula)
+.put('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.atualizarMatricula)
+//Requisição para apagar uma matricula
+.delete('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.apagarMatricula)
 
 
 
