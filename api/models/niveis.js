@@ -12,14 +12,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       niveis.hasMany(models.Turmas, {
         foreignKey: 'nivel_id'
-      }) 
+      })
     }
   };
   niveis.init({
     descr_nivel: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'niveis',
-  });
+  },
+    {
+      sequelize,
+      modelName: 'niveis',
+      paranoid: true
+    });
   return niveis;
 };

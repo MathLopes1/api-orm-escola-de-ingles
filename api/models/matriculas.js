@@ -13,16 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       Matriculas.belongsTo(models.pessoas, {
         foreignKey: 'estudante_id'
       })
-      Matriculas.belongsTo(models.Turmas,  {
+      Matriculas.belongsTo(models.Turmas, {
         foreignKey: 'turma_id'
       })
     }
   };
   Matriculas.init({
     status: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Matriculas',
-  });
+  },
+    {
+      sequelize,
+      modelName: 'Matriculas',
+      paranoid: true
+    });
   return Matriculas;
 };

@@ -1,16 +1,16 @@
 //Modelo de tabela Pessoas.
 'use strict';
-const {Model} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class pessoas extends Model {
-  
+
     static associate(models) {
-      pessoas.hasMany(models.Turmas, { 
+      pessoas.hasMany(models.Turmas, {
         foreignKey: 'docente_id'
       })
       pessoas.hasMany(models.Matriculas, {
         foreignKey: 'estudante_id'
-      }) 
+      })
 
     }
   };
@@ -19,9 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     ativo: DataTypes.BOOLEAN,
     email: DataTypes.STRING,
     role: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'pessoas',
-  });
+  },
+    {
+      sequelize,
+      modelName: 'pessoas',
+      paranoid: true
+    });
   return pessoas;
 };
