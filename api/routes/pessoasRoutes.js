@@ -9,6 +9,7 @@ router.get('/pessoas', PessoaController.pegaPessoasAtivas)
 .get('/pessoas/todos', PessoaController.pegaTodasAsPessoas)
 //Requisição para pehar uma pessoa através do metodo pegar uma pessoa
 .get('/pessoas/:id', PessoaController.pegarUmaPessoa)
+.get('/pessoas/:estudanteId/matricula', PessoaController.pegarMatriculas)
 //Requisição para criar uma nova pessoa
 .post('/pessoas', PessoaController.criarPessoa)
 //Requisição para atualizar uma pessoa por id
