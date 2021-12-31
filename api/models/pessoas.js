@@ -24,8 +24,13 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'pessoas',
       paranoid: true,
+      //Escopo padrão para pegar informações de pessoas específicas
       defaultScope: {
         where: { ativo: true }
+      },
+      //Escopos definidos
+      scopes:{
+        todos: {where: {}},
       }
     }
   )

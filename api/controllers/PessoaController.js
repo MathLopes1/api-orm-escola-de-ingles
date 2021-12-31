@@ -3,11 +3,20 @@ const database = require('../models')
 
 //Classe de controlador para a table pessoas dentro do banco de dados
 class PessoaController {
-    //Metodo estático para pegar todas as informações do modelo de tabela pessoas e enviar para o nosso GET
+    //Metodo estático para pegar todas as informações da tabela pessoas com escopo "todos"
     static async pegaTodasAsPessoas(req, res) {
         try {
-            const todasAsPessoas = await database.pessoas.findAll()
+            const todasAsPessoas = await database.pessoas.scope('todos').findAll()
             return res.status(200).json(todasAsPessoas)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+    //Pegando pessoas ativas
+    static async pegaPessoasAtivas(req, res) {
+        try {
+            const pessoasAtivas = await database.pessoas.findAll()
+            return res.status(200).json(pessoasAtivas)
         } catch (error) {
             return res.status(500).json(error.message)
         }
@@ -85,9 +94,6 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
-
-
-
     //Criando uma nova matricula - Rota: pessoas/:estudanteId/matricula
     static async criarMatricula(req, res) {
         const { estudanteId } = req.params
@@ -133,7 +139,6 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
-
 }
 
 module.exports = PessoaController
