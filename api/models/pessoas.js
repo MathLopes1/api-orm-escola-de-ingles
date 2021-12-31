@@ -23,7 +23,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'pessoas',
-      paranoid: true
-    });
+      paranoid: true,
+      defaultScope: {
+        where: { ativo: true }
+      }
+    }
+  )
   return pessoas;
 };
