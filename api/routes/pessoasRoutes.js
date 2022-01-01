@@ -11,6 +11,7 @@ router.get('/pessoas', PessoaController.pegaPessoasAtivas)
 .get('/pessoas/:id', PessoaController.pegarUmaPessoa)
 .get('/pessoas/:estudanteId/matricula', PessoaController.pegarMatriculas)
 .get('/pessoas/matricula/:turmaId/confirmadas', PessoaController.pegarMatriculasPorTurma)
+.get('/pessoas/matricula/lotada', PessoaController.pegarTurmasLotadas)
 //Requisição para criar uma nova pessoa
 .post('/pessoas', PessoaController.criarPessoa)
 //Requisição para atualizar uma pessoa por id

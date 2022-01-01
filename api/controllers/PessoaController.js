@@ -1,4 +1,5 @@
 //Exportando nosso modelo pessoas do banco de dados
+const { Sequelize } = require('../models')
 const database = require('../models')
 
 //Classe de controlador para a table pessoas dentro do banco de dados
@@ -164,6 +165,23 @@ class PessoaController {
             }
             )
             return res.status(200).json(todasAsMatriculas)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async pegarTurmasLotadas(req, res) {
+        const lotacaoTurma = 1
+        try {
+            const turmasLotadas = await database.Matriculas.findAndCountAll({
+                where: {
+                    status: 'confirmado'
+                },
+                attributes: ['turma_id'],
+                group: ['turma_id'],
+                having: Sequelize.literal(`count(turma_id) >= ${lotacaoTurma}`)
+            })
+            return res.status(200).json(turmasLotadas.count)
         } catch (error) {
             return res.status(500).json(error.message)
         }
