@@ -143,6 +143,7 @@ class PessoaController {
         const { estudanteId } = req.params
         try {
             const pessoa = await database.pessoas.findOne({ where: { id: Number(estudanteId) } })
+            //Usando mixin gerado pelo escopo de associação
             const matriculas = await pessoa.getAulasMatriculadas()
             return res.status(200).json(matriculas)
         } catch (error) {
