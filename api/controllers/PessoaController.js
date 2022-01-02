@@ -186,7 +186,20 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
-
+    static async cancelarPessoa(req, res) {
+        const { estudanteId } = req.body
+        try {
+            await database.pessoas.update({ ativo: false }, {
+                where: { id: Number(estudanteId) }
+            })
+            await database.Matriculas.update({ status: 'cancelado' }, {
+                where: { estudante_id: Number(estudanteId) }
+            })
+            return res.status(200).json({ message: `matriculas referente ao aluno de id ${estudanteId} canceladas!` })
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = PessoaController
