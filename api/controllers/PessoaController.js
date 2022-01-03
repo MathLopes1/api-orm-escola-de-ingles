@@ -1,6 +1,10 @@
 //Exportando nosso modelo pessoas do banco de dados
-const { Sequelize } = require('../models')
+//const { Sequelize } = require('../models')
 const database = require('../models')
+
+
+const Services = require('../services/Services')
+const pessoasServices = new Services('pessoas')
 
 //Classe de controlador para a table pessoas dentro do banco de dados
 class PessoaController {
@@ -16,7 +20,7 @@ class PessoaController {
     //Pegando pessoas ativas
     static async pegaPessoasAtivas(req, res) {
         try {
-            const pessoasAtivas = await database.pessoas.findAll()
+            const pessoasAtivas = await pessoasServices.pegaTodosOsRegistros()
             return res.status(200).json(pessoasAtivas)
         } catch (error) {
             return res.status(500).json(error.message)
