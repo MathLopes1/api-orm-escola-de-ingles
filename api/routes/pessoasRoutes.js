@@ -5,8 +5,8 @@ const PessoaController = require('../controllers/PessoaController')
 const router = Router()
 
 //Fazendo uma requisição get trazendo os conteudos armazenados no banco de dados, através do metodo pega todas as pessoas
-router.get('/pessoas', PessoaController.pegaPessoasAtivas)
-.get('/pessoas/todos', PessoaController.pegaTodasAsPessoas)
+router.get('/pessoas', PessoaController.pegaTodasAsPessoas)
+.get('/pessoas/ativas', PessoaController.pegaPessoasAtivas)
 //Requisição para pehar uma pessoa através do metodo pegar uma pessoa
 .get('/pessoas/:id', PessoaController.pegarUmaPessoa)
 .get('/pessoas/:estudanteId/matricula', PessoaController.pegarMatriculas)

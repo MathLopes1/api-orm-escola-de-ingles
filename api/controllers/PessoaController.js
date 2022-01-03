@@ -11,7 +11,7 @@ class PessoaController {
     //Metodo estático para pegar todas as informações da tabela pessoas com escopo "todos"
     static async pegaTodasAsPessoas(req, res) {
         try {
-            const todasAsPessoas = await database.pessoas.scope('todos').findAll()
+            const todasAsPessoas = await pessoasServices.pegaTodosOsRegistros()
             return res.status(200).json(todasAsPessoas)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -20,7 +20,7 @@ class PessoaController {
     //Pegando pessoas ativas
     static async pegaPessoasAtivas(req, res) {
         try {
-            const pessoasAtivas = await pessoasServices.pegaTodosOsRegistros()
+            const pessoasAtivas = await pessoasServices.pegaRegistrosAtivos()
             return res.status(200).json(pessoasAtivas)
         } catch (error) {
             return res.status(500).json(error.message)
