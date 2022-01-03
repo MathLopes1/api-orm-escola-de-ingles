@@ -3,8 +3,8 @@
 const database = require('../models')
 
 
-const Services = require('../services/Services')
-const pessoasServices = new Services('pessoas')
+const {PessoasServices} = require('../services')
+const pessoasServices = new PessoasServices()
 
 //Classe de controlador para a table pessoas dentro do banco de dados
 class PessoaController {
